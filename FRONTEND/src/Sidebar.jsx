@@ -10,20 +10,7 @@ function Sidebar(){
 
     const getAllThreads = async () => {
         try{
-            const response = await fetch(
-              `${import.meta.env.VITE_API_URL}/api/chat`,
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  message: prompt,
-                  threadId: currThreadId,
-                }),
-              }
-            );
-            
+            const response = await fetch (`${import.meta.env.VITE_API_URL}/api/thread`);
             const res = await response.json();
             const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
             console.log(filteredData);
