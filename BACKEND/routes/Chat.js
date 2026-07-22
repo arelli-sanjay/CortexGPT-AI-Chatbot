@@ -7,6 +7,8 @@ const router = express.Router();
 
 //test
 router.post("/test", async(req,res) => {
+    console.log("POST /api/chat called");
+    console.log(req.body);
     try{
         const thread = new Thread({
             threadId : "12733388xyz",
